@@ -7,7 +7,7 @@ var session = require('express-session');
 // var flash = require("connect-flash");
 const flash = require("express-flash");
 var logger = require('morgan');
-var dbConnection = require('./.config/dbConnection');
+// var dbConnection = require('./.config/dbConnection');
 var dotenv = require("dotenv");
 const basemiddleware = require("./middleware/basemiddleware")
 var bodyParser = require('body-parser');
@@ -87,7 +87,7 @@ app.use(function(err, req, res, next) {
 });
 
 // Connect to the database
-dbConnection();
+// dbConnection();
 
 // Start the server
 var port = process.env.PORT || 8747;

@@ -12,7 +12,9 @@ module.exports = function (io) {
     //Connect the user  //Test pass
     socket.on("connect_user", async function (data) {
       try {
+        console.log(data, "aaaaaaa")
         const socketId = socket.id;
+        console.log("socketId",socketId)
         const checkUser = await Models.socketuser.findOne({
           userId: data.userId,
         });
@@ -33,6 +35,7 @@ module.exports = function (io) {
         let success_msg = {
           success_msg: "connected successfully",
         };
+        console.log(success_msg)
         socket.emit("connect_user_listener", success_msg);
       } catch (error) {
         console.error(error);
@@ -581,3 +584,35 @@ module.exports = function (io) {
 // }
 // // Call the sendMessage function
 // sendMessage();
+
+
+
+
+
+/*
+
+Backend listerner - 
+emmiter ===1.(connect_user,connect_user_listener (send keys -- userId)), for connect user. 
+
+2.(users_chat_list,users_chat_list_listener (send key to backend--- senderId,receiverId)), for seen single user all messsage
+
+3.(user_constant_list,user_constant_chat_list (send Key to backend----senderId)),List of all user with whom sender-User do chat.
+
+4(disconnect_user,disconnect_listener (send Key to backend----senderId)),for discount the user
+
+5.(read_unread,read_data_status) for read or unread the message. 
+
+6 .(delete_message,delete_message_listener) delete permanetly message
+
+7.(send_message,send_message_emit,(send Key to backend----senderId,receiverId,message,message_type)) for send the message. 
+
+8.(clear_chat,clear_chat_listener) for clear the chat senderId and receiverId. 
+
+9.(block_user,block_user_listener) for block the user
+
+10.(typing,typing) for typing. 
+
+11.(stopTyping,stopTyping) for stop typing.
+
+soket emit and listner
+*/

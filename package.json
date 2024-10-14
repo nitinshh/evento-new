@@ -37,5 +37,10 @@
     "socket.io": "^4.7.2",
     "sweetalert": "^2.1.2",
     "uuidv4": "^6.2.13"
-  }
+  },
+  "main": "evento.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
